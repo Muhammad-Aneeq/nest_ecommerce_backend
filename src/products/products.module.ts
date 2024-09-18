@@ -16,7 +16,7 @@ import { CloudinaryModule } from 'src/cloudinary/cloudinary.module';
         schema: ProductSchema,
       },
     ]),
-    CloudinaryModule
+    CloudinaryModule,
   ],
   providers: [
     ProductsService,

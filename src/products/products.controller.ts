@@ -29,20 +29,16 @@ export class ProductsController {
   @UseGuards(RolesGuard)
   @UseInterceptors(FileInterceptor('image'))
   @HttpCode(200)
-  async createProduct(@Body() createProductDto: CreateProductDto, @UploadedFile() image: Express.Multer.File) {
+  async createProduct(@Body() createProductDto: CreateProductDto, @UploadedFile() image: Express.Multer.File): Promise<Product> {
     return this.productsService.createProduct(createProductDto, image);
   }
 
   @Get()
-  @Roles(Role.Admin)
-  @UseGuards(RolesGuard)
   async getProducts(): Promise<Product[]> {
     return await this.productsService.getProducts();
   }
 
   @Get(':id')
-  @Roles(Role.Admin)
-  @UseGuards(RolesGuard)
   async getProduct(@Param('id') id: string): Promise<Product> {
     return await this.productsService.getProduct(id);
   }

@@ -56,7 +56,7 @@ export class AuthService {
 
       return { access_token: token };
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
@@ -65,7 +65,7 @@ export class AuthService {
       const verifiedToken: JwtPayload = await this.jwtService.verify(token);
       return verifiedToken;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 }

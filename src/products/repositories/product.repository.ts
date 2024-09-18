@@ -47,8 +47,8 @@ export class ProductRepository {
   }
 
   async deleteProduct(id: string): Promise<{ message: string }> {
-    const deletedproduct = await this.productModel.findByIdAndDelete(id);
-    if (!deletedproduct)
+    const deletedProduct = await this.productModel.findByIdAndDelete(id);
+    if (!deletedProduct)
       throw new BadRequestException('400 product was not deleted');
     return { message: 'product deleted successfully!' };
   }

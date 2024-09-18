@@ -15,7 +15,7 @@ export class ProductsService {
   async createProduct(
     createProductDto: CreateProductDto,
     image: Express.Multer.File,
-  ) {
+  ): Promise<Product> {
     let imageUrl = null;
 
     if (image) {
