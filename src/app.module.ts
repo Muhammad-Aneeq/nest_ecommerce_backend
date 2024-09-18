@@ -7,6 +7,7 @@ import { ProductsModule } from './products/products.module';
 import { OrdersModule } from './orders/orders.module';
 import { ReviewsModule } from './reviews/reviews.module';
 import { ConfigurationModule } from './config/config.module';
+import { CloudinaryModule } from './cloudinary/cloudinary.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ConfigurationModule } from './config/config.module';
     ProductsModule,
     OrdersModule,
     ReviewsModule,
+    CloudinaryModule,
   ],
   controllers: [AppController],
   providers: [AppService],

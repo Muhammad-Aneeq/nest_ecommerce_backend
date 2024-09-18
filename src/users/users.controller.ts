@@ -19,7 +19,7 @@ export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Get()
-  @Roles(Role.User)
+  @Roles(Role.Admin)
   @UseGuards(RolesGuard)
   async getAllUsers(): Promise<User[]> {
     return await this.usersService.getUsers();
@@ -31,6 +31,8 @@ export class UsersController {
   }
 
   @Patch(':id')
+  @Roles(Role.Admin)
+  @UseGuards(RolesGuard)
   async updateUser(
     @Param('id') id: string,
     @Body() updateUserDto: UpdateUserDto,
@@ -39,6 +41,8 @@ export class UsersController {
   }
 
   @Delete(':id')
+  @Roles(Role.Admin)
+  @UseGuards(RolesGuard)
   async deleteUser(@Param('id') id: string): Promise<{ message: string }> {
     return await this.usersService.deleteUser(id);
   }
